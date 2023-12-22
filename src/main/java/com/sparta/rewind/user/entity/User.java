@@ -19,8 +19,12 @@ public class User extends TimeEntity {
 
     String password;
 
+    @Column(unique = true)
+    String email;
 
     public User(String username, String encode, String email) {
-        super();
+        this.username = username;
+        this.password = encode;
+        this.email = email;
     }
 }

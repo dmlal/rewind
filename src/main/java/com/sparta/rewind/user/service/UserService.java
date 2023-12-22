@@ -60,6 +60,10 @@ public class UserService {
 
         redisTemplate.opsForValue().set(email, authCode, Duration.ofSeconds(expiredCodeTime));
 
+        // 레디스 잘 돌아가는지 확인차 찍어본 코드
+//        String redisAuthCode = redisTemplate.opsForValue().get(email);
+//        System.out.println("Redis에 저장된 인증 코드: " + redisAuthCode);
+
         mailService.sendMail(email, title, authCode);
     }
 
@@ -73,5 +77,5 @@ public class UserService {
         }
 
         return redisAuthCode.equals(authCode);
-    }
+    } 
 }
