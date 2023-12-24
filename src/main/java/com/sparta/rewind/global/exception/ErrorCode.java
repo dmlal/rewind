@@ -10,9 +10,11 @@ public enum ErrorCode {
     에러코드 적기
      */
     // 400 Bad Request
+    INVALID_VALUE(400, "INVALID VALUE"),
     DOSE_NOT_MATCH_PASSWORD(400, "DOSE NOT MATCH PASSWORD"),
     CAN_N0T_SEND_AUTHENTICATION_MAIL(400, "CAN N0T SEND AUTHENTICATION MAIL"),
     FAIL_TO_AUTHENTICATION(400, "FAIL TO AUTHENTICATION"),
+    FAIL_TO_AUTHORIZATION(400, "FAIL TO AUTHORIZATION"),
 
     // 404 NOT FOUND
     MISSING_OR_EXPIRED_AUTHCODE(404,"MISSING OR EXPIRED AUTHCODE"),
@@ -30,7 +32,10 @@ public enum ErrorCode {
     INVALID_JWT_SIGNATURE(433 ,"Invalid JWT signature"),
     EXPIRED_JWT_TOKEN(433,"Expired JWT token"),
     UNSUPPORTED_JWT_TOKEN(433, "Unsupported JWT token"),
-    EMPTY_JWT_CLAIMS(433, "JWT claims is empty")
+    EMPTY_JWT_CLAIMS(433, "JWT claims is empty"),
+
+    // 500 Internal Server Error
+    INTERNAL_SERVER_ERROR(500, "Internal Server Error")
 
 
     ;

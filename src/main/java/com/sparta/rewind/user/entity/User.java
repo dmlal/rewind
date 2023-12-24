@@ -1,9 +1,13 @@
 package com.sparta.rewind.user.entity;
 
+import com.sparta.rewind.comment.entity.Comment;
 import com.sparta.rewind.global.entity.TimeEntity;
+import com.sparta.rewind.post.entity.Post;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -21,6 +25,12 @@ public class User extends TimeEntity {
 
     @Column(unique = true)
     String email;
+
+    @OneToMany(mappedBy = "user")
+    private List<Post> postList;
+
+    @OneToMany(mappedBy = "user")
+    private List<Comment> commentList;
 
     public User(String username, String encode, String email) {
         this.username = username;
