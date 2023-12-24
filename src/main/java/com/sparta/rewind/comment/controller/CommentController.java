@@ -8,16 +8,17 @@ import com.sparta.rewind.global.annotation.AuthUser;
 import com.sparta.rewind.global.dto.BaseResponseDto;
 import com.sparta.rewind.user.entity.User;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/comments")
-@RequiredArgsConstructor
 public class CommentController {
 
-    private final CommentService commentService;
+    @Autowired
+    private CommentService commentService;
 
     @PostMapping("/{postId}")
     public ResponseEntity<BaseResponseDto<CommentResponseDto>> createComment(@PathVariable Long postId, @RequestBody CommentRequestDto requestDto,
