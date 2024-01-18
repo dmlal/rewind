@@ -38,7 +38,7 @@ jobs:
       - name: Build and push Docker Image
         uses: docker/build-push-action@v4
         with:
-          context: /fastcampus/ch12/nodejs-ci
+          context: .
           push: true
           tags: ${{ steps.docker_meta.outputs.tags }}
           labels: ${{ steps.docker_meta.outputs.labels }}
